@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Information</h2>
+        <form action="/employee-info" method="POST">
+            <div class="form-group">
+                <label for="uan">UAN</label>
+                <input type="text" id="uan" name="uan" pattern="\d{12}" title="UAN must be 12 digits" required>
+            </div>
+            <div class="form-group">
+                <label for="pan">PAN</label>
+                <input type="text" id="pan" name="pan" pattern="[A-Z]{5}\d{4}[A-Z]" title="PAN must follow the format ABCDE1234F" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" pattern="\d{10}" title="Mobile number must be 10 digits" required>
+            </div>
+            <button type="submit" class="btn">Check Employment Status</button>
+        </form>
+        <% if (status) { %>
+            <p><%= status %></p>
+        <% } %>
+    </div>
+</body>
+</html>
